@@ -4,11 +4,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import utilities.Driver;
 
-import static Hooks.Hooks.driver;
+import static hooks.Hooks.driver;
 
-public class US_01_SD {
+public class US01_SD {
 
     @Given("Benutzer sollte {string} erreichen")
     public void benutzerSollteErreichen(String url) {
@@ -31,14 +30,5 @@ public class US_01_SD {
     public void derTitelSollteAufVerschiedenenBrowsernRichtigAngezeigtWerdenChromeFirefoxSafari() {
 
     }
-
-    /*
-git init
-git add .
-git commit -m "US01/12092023"
-git branch -M main
-git remote add origin https://github.com/ogunerdogann/Framework_Example.git
-git push -u origin main
-     */
 
 }

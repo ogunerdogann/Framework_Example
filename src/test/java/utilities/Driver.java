@@ -9,8 +9,8 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
-import static Hooks.Hooks.browserType;
-import static Hooks.Hooks.driver;
+import static hooks.Hooks.browserType;
+import static hooks.Hooks.driver;
 
 public class Driver {
 
