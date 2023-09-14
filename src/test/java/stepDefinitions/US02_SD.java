@@ -3,13 +3,8 @@ package stepDefinitions;
 import enums.NAVBAR;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
 import pages.CommonPage;
-import pages.HomePage;
-
-import java.util.List;
-
-import static hooks.Hooks.driver;
+import utilities.ReusableMethods;
 
 public class US02_SD extends CommonPage {
 
@@ -31,44 +26,31 @@ public class US02_SD extends CommonPage {
 
         NAVBAR.ABOUT_US_PAGE.clickPage();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+       ReusableMethods.waitFor(1);
 
         NAVBAR.ABOUT_US_PAGE.verifiziereUrl();
         NAVBAR.ABOUT_US_PAGE.verifiziereTitle();
 
         NAVBAR.CONTACT_US_PAGE.clickPage();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitFor(1);
+
 
         NAVBAR.CONTACT_US_PAGE.verifiziereUrl();
         NAVBAR.CONTACT_US_PAGE.verifiziereTitle();
 
         NAVBAR.CONSULTING_PAGE.clickPage();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitFor(1);
+
 
         NAVBAR.CONSULTING_PAGE.verifiziereUrl();
         NAVBAR.CONSULTING_PAGE.verifiziereTitle();
 
         NAVBAR.ACCOUNT_PAGE.clickPage();
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ReusableMethods.waitFor(1);
+
 
         NAVBAR.ACCOUNT_PAGE.verifiziereUrl();
         NAVBAR.ACCOUNT_PAGE.verifiziereTitle();
