@@ -14,6 +14,9 @@ public class HomePage extends CommonPage {
     @FindBy(css = "li [href^='/']")
     private List<WebElement> navBarList;
 
+    @FindBy(css = "h1 [href^='/consulting']")
+    private WebElement ourSolutionsButton;
+
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
 
         List<String> tabs = dataTable.column(0);
@@ -57,6 +60,12 @@ public class HomePage extends CommonPage {
     public void clickPage(int index){
 
             navBarList.get(index).click();
+    }
+
+    public void sindOurSolutionsSichbarAndAnklickbar(){
+        Assert.assertTrue(ourSolutionsButton.isDisplayed());
+        Assert.assertTrue(ourSolutionsButton.isEnabled());
+
     }
 
 }
