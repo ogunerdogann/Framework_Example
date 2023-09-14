@@ -1,7 +1,6 @@
 package enums;
 
 import org.junit.Assert;
-import pages.HomePage;
 
 import static hooks.Hooks.commonPage;
 import static hooks.Hooks.driver;
@@ -15,9 +14,7 @@ public enum NAVBAR {
 
     private String url;
     private int index;
-
     private String title;
-
 
     NAVBAR(String title, String url, int index) {
         this.title = title;
