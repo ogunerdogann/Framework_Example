@@ -21,6 +21,10 @@ public class HomePage extends CommonPage {
     @FindBy(css = "h1 [href^='/consulting']")
     private WebElement ourSolutionsButton;
 
+    // das Suchfeld oben rechts auf HomePage
+    @FindBy(id = "header-search-bar")
+    private WebElement suchFeldHomePage;
+
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
 
@@ -75,6 +79,10 @@ public class HomePage extends CommonPage {
         Assert.assertTrue(ourSolutionsButton.isDisplayed());
         Assert.assertTrue(ourSolutionsButton.isEnabled());
 
+    }
+
+    public void verifiziereSuchFeldHomePage(){
+        Assert.assertTrue(suchFeldHomePage.isDisplayed());
     }
 
 }
