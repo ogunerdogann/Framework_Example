@@ -27,7 +27,7 @@ public class HomePage extends CommonPage {
                 throw new RuntimeException(e);
             }
 
-            getHomePage().navBarList.get(i).click();
+            navBarList.get(i).click();
 
             Assert.assertEquals(urls.get(i), driver.getCurrentUrl());
         }
@@ -47,7 +47,7 @@ public class HomePage extends CommonPage {
                 throw new RuntimeException(e);
             }
 
-            getHomePage().navBarList.get(i).click();
+            navBarList.get(i).click();
 
             Assert.assertEquals(titleNames.get(i), driver.getTitle());
         }
