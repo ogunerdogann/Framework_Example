@@ -1,7 +1,7 @@
 Feature: When I enter the home page as a user, I should see the page title is "KesifPlus".
 
   Background:
-    Given Benutzer sollte "https://test.kesifplus.com/" erreichen
+    Given Navigiere zu "https://test.kesifplus.com/"
 
   @UI
   Scenario: Der Titel sollte auf Chrome Browser richtig angezeigt werden
