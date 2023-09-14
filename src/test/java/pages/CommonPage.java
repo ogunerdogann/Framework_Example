@@ -22,4 +22,12 @@ public abstract class CommonPage {
         //page sayfasindan obje olusturmak icin, constructor calisacak
         //ve bu constructor'in icinde bulunan initelements() gerekli ayari yapilmis olacak
     }
+    private HomePage homePage;
+
+    public HomePage getHomePage() {
+        if (homePage == null){
+            homePage = new HomePage();
+        }
+        return homePage;
+    }
 }

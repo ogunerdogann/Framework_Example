@@ -9,10 +9,12 @@ import static hooks.Hooks.driver;
 
 public class US01_SD {
 
-    @Given("Benutzer sollte {string} erreichen")
-    public void benutzerSollteErreichen(String url) {
+    @Given("Navigiere zu {string}")
+    public void navigiereZu(String url) {
         driver.get(url);
     }
+
+
 
 
     @Then("Der Seitentitel sollte {string} enthalten.")
@@ -30,5 +32,6 @@ public class US01_SD {
     public void derTitelSollteAufVerschiedenenBrowsernRichtigAngezeigtWerdenChromeFirefoxSafari() {
 
     }
+
 
 }
