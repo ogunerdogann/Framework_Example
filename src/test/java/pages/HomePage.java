@@ -14,8 +14,13 @@ public class HomePage extends CommonPage {
     @FindBy(css = "li [href^='/']")
     private List<WebElement> navBarList;
 
+    // Kesif Plus Logo oben links
+    @FindBy(css = "img[src$='c1.png']")
+    private WebElement kesifPlusLogo;
+
     @FindBy(css = "h1 [href^='/consulting']")
     private WebElement ourSolutionsButton;
+
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
 
@@ -55,6 +60,10 @@ public class HomePage extends CommonPage {
             Assert.assertEquals(titleNames.get(i), driver.getTitle());
         }
 
+    }
+
+    public void verifiziereKesifPlusLogo(){
+        Assert.assertTrue(kesifPlusLogo.isDisplayed());
     }
 
     public void clickPage(int index){
