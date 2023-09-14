@@ -8,16 +8,16 @@ import utilities.ReusableMethods;
 
 public class US02_SD extends CommonPage {
 
-    @Given("Der Nutzer klickt auf taps und verifiziert die entsprechende URL")
-    public void derNutzerKlicktAufTapsUndVerifiziertDieEntsprechendeURL(DataTable dataTable) {
+    @Given("Die Tabs müssen geklickt werden und die entsprechenden URLs müssen verifiziert werden")
+    public void dieTabsMüssenGeklicktWerdenUndDieEntsprechendenURLsMüssenVerifiziertWerden(DataTable dataTable) {
         getHomePage().klickeUndVerifiziereUrl(dataTable);
-
     }
 
-    @Given("Der Nutzer klickt auf die Registerkarten und überprüft den Seitentitel")
-    public void derNutzerKlicktAufDieRegisterkartenUndÜberprüftDenSeitentitel(DataTable dataTable) {
+    @Given("Die Tabs müssen geklickt werden und die entsprechenden Seitentitel müssen verifiziert werden")
+    public void dieTabsMüssenGeklicktWerdenUndDieEntsprechendenSeitentitelMüssenVerifiziertWerden(DataTable dataTable) {
         getHomePage().klickeUndVerifiziereTitle(dataTable);
     }
+
 
     @Given("ENUM CLASS")
     public void enumCLASS() {
@@ -55,4 +55,7 @@ public class US02_SD extends CommonPage {
         NAVBAR.ACCOUNT_PAGE.verifiziereUrl();
         NAVBAR.ACCOUNT_PAGE.verifiziereTitle();
     }
+
+
+
 }
