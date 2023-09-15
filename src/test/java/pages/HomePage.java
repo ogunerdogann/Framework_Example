@@ -4,9 +4,11 @@ import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
+import static hooks.Hooks.actions;
 import static hooks.Hooks.driver;
 
 public class HomePage extends CommonPage {
@@ -24,6 +26,9 @@ public class HomePage extends CommonPage {
     // das Suchfeld oben rechts auf HomePage
     @FindBy(id = "header-search-bar")
     private WebElement suchFeldHomePage;
+
+    @FindBy(css = ".Features div")
+    private List<WebElement> featuresList;
 
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
@@ -83,6 +88,27 @@ public class HomePage extends CommonPage {
 
     public void verifiziereSuchFeldHomePage(){
         Assert.assertTrue(suchFeldHomePage.isDisplayed());
+    }
+
+    public void verifiziereFeatures(){
+       ReusableMethods.waitforVisibility(featuresList.get(0),10);
+       ReusableMethods.waitforVisibility(featuresList.get(1),10);
+       ReusableMethods.waitforVisibility(featuresList.get(2),10);
+    }
+
+    public void hoverToFeatures(){
+        ReusableMethods.scrollToWebElement(featuresList.get(0));
+        System.out.println(featuresList.get(0).getCssValue("transition").toString());
+        ReusableMethods.waitFor(5);
+        ReusableMethods.hoverWebElement(featuresList.get(0));
+        System.out.println(featuresList.get(0).getCssValue("transition").toString());
+        ReusableMethods.waitFor(5);
+        ReusableMethods.scrollToWebElement(featuresList.get(1));
+        ReusableMethods.hoverWebElement(featuresList.get(1));
+        ReusableMethods.waitFor(5);
+        ReusableMethods.scrollToWebElement(featuresList.get(2));
+        ReusableMethods.hoverWebElement(featuresList.get(2));
+        ReusableMethods.waitFor(5);
     }
 
 }
