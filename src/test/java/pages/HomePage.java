@@ -71,32 +71,39 @@ public class HomePage extends CommonPage {
 
     }
 
-    public void verifiziereKesifPlusLogo(){
+    public void verifiziereKesifPlusLogo() {
         Assert.assertTrue(kesifPlusLogo.isDisplayed());
     }
 
-    public void clickPage(int index){
+    public void clickPage(int index) {
 
-            navBarList.get(index).click();
+        navBarList.get(index).click();
     }
 
-    public void sindOurSolutionsSichbarAndAnklickbar(){
+    public void sindOurSolutionsSichbarAndAnklickbar() {
         Assert.assertTrue(ourSolutionsButton.isDisplayed());
         Assert.assertTrue(ourSolutionsButton.isEnabled());
 
     }
 
-    public void verifiziereSuchFeldHomePage(){
+    public void verifiziereSuchFeldHomePage() {
         Assert.assertTrue(suchFeldHomePage.isDisplayed());
     }
 
-    public void verifiziereFeatures(){
-       ReusableMethods.waitforVisibility(featuresList.get(0),10);
-       ReusableMethods.waitforVisibility(featuresList.get(1),10);
-       ReusableMethods.waitforVisibility(featuresList.get(2),10);
+    public void verifiziereFeatures() {
+        ReusableMethods.waitforVisibility(featuresList.get(0), 10);
+        ReusableMethods.waitforVisibility(featuresList.get(1), 10);
+        ReusableMethods.waitforVisibility(featuresList.get(2), 10);
     }
 
-    public void hoverToFeatures(){
+    public void hoverToFeatures() {
+        int beforeHoverY;
+        int afterHoverY;
+
+        int beforeHoverX;
+        int afterHoverX;
+
+
         ReusableMethods.scrollToWebElement(featuresList.get(0));
         System.out.println(featuresList.get(0).getCssValue("transition").toString());
         ReusableMethods.waitFor(5);
@@ -106,9 +113,24 @@ public class HomePage extends CommonPage {
         ReusableMethods.scrollToWebElement(featuresList.get(1));
         ReusableMethods.hoverWebElement(featuresList.get(1));
         ReusableMethods.waitFor(5);
+
+
+        System.out.println("featuresList.get(2).getLocation().getX() = " + featuresList.get(2).getLocation().getX());
+        System.out.println("featuresList.get(2).getLocation().getY() = " + featuresList.get(2).getLocation().getY());
+        beforeHoverY = featuresList.get(2).getLocation().getY();
+        beforeHoverX = featuresList.get(2).getLocation().getX();
         ReusableMethods.scrollToWebElement(featuresList.get(2));
         ReusableMethods.hoverWebElement(featuresList.get(2));
         ReusableMethods.waitFor(5);
+        System.out.println("featuresList.get(2).getLocation().getX() = " + featuresList.get(2).getLocation().getX());
+        System.out.println("featuresList.get(2).getLocation().getY() = " + featuresList.get(2).getLocation().getY());
+        afterHoverY = featuresList.get(2).getLocation().getY();
+        afterHoverX = featuresList.get(2).getLocation().getX();
+
+        // web element yukari dogru hareket ettigi icin y koordinati daha da kuculuyor bende onceside 700 iken sonrasinda 680 oluyordu bu rakamlar sizde farkli olabilir
+        Assert.assertTrue(afterHoverY<beforeHoverY);
+        // x coordinatinda bir degisiklik olmayacaktir
+        Assert.assertEquals(beforeHoverX, afterHoverX);
     }
 
 }
