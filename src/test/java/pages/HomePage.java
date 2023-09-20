@@ -33,6 +33,9 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//*[text()='More About Us']")
     private WebElement moreAboutUsButton;
 
+    @FindBy(css = "h3[class$='f_size_18']")
+    private List<WebElement> footerTitel;
+
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
 
@@ -144,6 +147,18 @@ public class HomePage extends CommonPage {
         String expectedText = "More About Us";
         String actualText = moreAboutUsButton.getText();
         Assert.assertEquals(expectedText,actualText);
+    }
+
+    public void scrolleZumGetInTouchWithUs(){
+        ReusableMethods.scrollToWebElement(footerTitel.get(0));
+        ReusableMethods.waitFor(2);
+    }
+
+    public void verifiziereFooterTitel(){
+
+        for (int i = 0; i < 4; i++) {
+            Assert.assertTrue(footerTitel.get(i).isDisplayed());
+        }
     }
 }
 

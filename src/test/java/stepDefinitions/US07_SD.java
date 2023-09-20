@@ -13,7 +13,7 @@ public class US07_SD extends CommonPage{
     }
 
     @Given("scrolle zum More About Us Taste")
-    public void scrolleZumMoreAboutUsTaste() {
+    public void scrolleZumMoreAboutUsText() {
         getHomePage().scrolleZumMoreAboutUs();
         ReusableMethods.waitFor(2);
     }
