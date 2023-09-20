@@ -30,6 +30,9 @@ public class HomePage extends CommonPage {
     @FindBy(css = ".Features div")
     private List<WebElement> featuresList;
 
+    @FindBy(xpath = "//*[text()='More About Us']")
+    private WebElement moreAboutUsButton;
+
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
 
@@ -133,6 +136,15 @@ public class HomePage extends CommonPage {
         Assert.assertEquals(beforeHoverX, afterHoverX);
     }
 
+    public void scrolleZumMoreAboutUs(){
+        ReusableMethods.scrollToWebElement(moreAboutUsButton);
+    }
+
+    public void verifiziereMoreAboutUsText(){
+        String expectedText = "More About Us";
+        String actualText = moreAboutUsButton.getText();
+        Assert.assertEquals(expectedText,actualText);
+    }
 }
 
 
