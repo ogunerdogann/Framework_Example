@@ -1,5 +1,6 @@
 package hooks;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,8 @@ public class Hooks {
     public static String browserType = "chrome";
     public static CommonPage commonPage;
     public static Actions actions;
+
+    public static Faker faker;
 
     @Before(value = "@firefox", order = 0)
     public void setIsFirefox() {
@@ -31,6 +34,8 @@ public class Hooks {
         commonPage = new CommonPage() {
         };
         actions = new Actions(driver);
+
+        faker = new Faker();
     }
 
     @After(value = "@UI")
