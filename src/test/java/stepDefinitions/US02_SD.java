@@ -3,8 +3,12 @@ package stepDefinitions;
 import enums.NAVBAR;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import pages.CommonPage;
 import utilities.ReusableMethods;
+
+import static hooks.Hooks.driver;
 
 public class US02_SD extends CommonPage {
 
@@ -57,5 +61,12 @@ public class US02_SD extends CommonPage {
     }
 
 
+    @Then("die {string} geklickt werden und die entsprechenden {string} müssen verifiziert werden")
+    public void dieGeklicktWerdenUndDieEntsprechendenMüssenVerifiziertWerden(String tab, String url) {
 
+        driver.get(url);
+        Assert.assertTrue(driver.getCurrentUrl().contains(tab.toLowerCase()));
+        Assert.assertEquals(url,driver.getCurrentUrl());
+
+    }
 }
