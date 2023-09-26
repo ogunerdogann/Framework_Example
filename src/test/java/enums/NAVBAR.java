@@ -6,11 +6,11 @@ import static hooks.Hooks.commonPage;
 import static hooks.Hooks.driver;
 
 public enum NAVBAR {
-    HOME_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://www.kesifplus.com/", 0),
-    ABOUT_US_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://www.kesifplus.com/about-us", 1),
-    CONTACT_US_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://www.kesifplus.com/contact-us", 2),
-    CONSULTING_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://www.kesifplus.com/consulting", 3),
-    ACCOUNT_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://www.kesifplus.com/login", 4);
+    HOME_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://test.kesifplus.com/", 0),
+    ABOUT_US_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://test.kesifplus.com/about-us", 1),
+    CONTACT_US_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://test.kesifplus.com/contact-us", 2),
+    CONSULTING_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://test.kesifplus.com/consulting", 3),
+    ACCOUNT_PAGE("KesifPlus - Bireysel ve Kurumsal Çözümler!", "https://test.kesifplus.com/login", 4);
 
     private String url;
     private int index;
