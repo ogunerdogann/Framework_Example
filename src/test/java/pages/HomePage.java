@@ -1,7 +1,10 @@
 package pages;
 
+import enums.CONTACT;
+import enums.NAVBAR;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.ReusableMethods;
@@ -53,6 +56,15 @@ public class HomePage extends CommonPage {
 
     @FindBy(css = "[class$='icon']>a")
     private List<WebElement> sozialeMedienButtonsList;
+
+    @FindBy(css = "#PageInfo-title")
+    private WebElement aboutUsText;
+
+    @FindBy(css = "[placeholder*='F']")
+    private WebElement contactUsFirstNameBox;
+
+    @FindBy(css = "[class*='body']")
+    private WebElement contactUsSuccessfullyMessage;
 
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
@@ -232,8 +244,56 @@ public class HomePage extends CommonPage {
 
     }
 
+    public void klickeAufAboutUsUndVerifiziereDieUrl(DataTable dataTable){
 
+        Assert.assertEquals("https://test.kesifplus.com/about-us",driver.getCurrentUrl());
 
+        Assert.assertEquals(dataTable.column(0).get(0),driver.getCurrentUrl());
+
+        NAVBAR.ABOUT_US_PAGE.verifiziereUrl();
+
+        Assert.assertTrue(aboutUsText.isDisplayed());
+    }
+
+    public void fülleDasKontaktFormularaufundKlickeAufSubmit(){
+        NAVBAR.CONTACT_US_PAGE.clickPage();
+
+     //  actions.sendKeys(contactUsFirstNameBox,"Burkay")
+     //          .sendKeys(Keys.TAB)
+     //          .sendKeys("Gül")
+     //          .sendKeys(Keys.TAB)
+     //          .sendKeys("burkaygul96@gmail.com")
+     //          .sendKeys(Keys.TAB)
+     //          .sendKeys("017682285995")
+     //          .sendKeys(Keys.TAB)
+     //          .sendKeys("naber")
+     //          .sendKeys(Keys.TAB)
+     //          .sendKeys(Keys.ENTER).build().perform();
+
+        ReusableMethods.waitFor(1);
+
+        actions.sendKeys(contactUsFirstNameBox, CONTACT.BURKAY.getFirstName())
+                .sendKeys(Keys.TAB)
+                .sendKeys(CONTACT.BURKAY.getSurname())
+                .sendKeys(Keys.TAB)
+                .sendKeys(CONTACT.BURKAY.getEmail())
+                .sendKeys(Keys.TAB)
+                .sendKeys(CONTACT.BURKAY.getNumber())
+                .sendKeys(Keys.TAB)
+                .sendKeys(CONTACT.BURKAY.getYourMessage())
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ENTER)
+                .build().perform();
+
+        ReusableMethods.waitFor(3);
+
+    }
+
+    public void verifiziereKontaktFormularGespeichertWurde(){
+        Assert.assertTrue(contactUsSuccessfullyMessage.toString().contains("successfully"));
+    }
 }
+
+
 
 
