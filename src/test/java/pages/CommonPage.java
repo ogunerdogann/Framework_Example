@@ -24,10 +24,27 @@ public abstract class CommonPage {
     }
     private HomePage homePage;
 
+    private ConsultingPage consultingPage;
+
+    private LoginPage loginPage;
+
     public HomePage getHomePage() {
         if (homePage == null){
             homePage = new HomePage();
         }
         return homePage;
+    }
+    public ConsultingPage getConsultingPage() {
+        if (consultingPage == null){
+            consultingPage = new ConsultingPage();
+        }
+        return consultingPage;
+    }
+
+    public LoginPage getLoginPage() {
+        if (loginPage == null){
+            loginPage = new LoginPage();
+        }
+        return loginPage;
     }
 }
