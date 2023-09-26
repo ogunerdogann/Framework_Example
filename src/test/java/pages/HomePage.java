@@ -36,6 +36,24 @@ public class HomePage extends CommonPage {
     @FindBy(css = "h3[class$='f_size_18']")
     private List<WebElement> footerTitel;
 
+    @FindBy(css = "div.package1 button")
+    private WebElement silverGetStartedButton;
+
+    @FindBy(css = "div.package2 button")
+    private WebElement goldGetStartedButton;
+
+    @FindBy(css = "div.package3 button")
+    private WebElement platinGetStartedButton;
+
+    @FindBy(css = "h4.pricing-h4")
+    private WebElement planAndPricingText;
+
+    @FindBy(css = "#col-4 h3")
+    private WebElement teamSolutionsText;
+
+    @FindBy(css = "[class$='icon']>a")
+    private List<WebElement> sozialeMedienButtonsList;
+
 
     public void klickeUndVerifiziereUrl(DataTable dataTable) {
 
@@ -109,13 +127,22 @@ public class HomePage extends CommonPage {
         int beforeHoverX;
         int afterHoverX;
 
-
+        beforeHoverX = featuresList.get(0).getLocation().getX();
+        beforeHoverY = featuresList.get(0).getLocation().getY();
+        System.out.println(beforeHoverY);
         ReusableMethods.scrollToWebElement(featuresList.get(0));
-        System.out.println(featuresList.get(0).getCssValue("transition").toString());
         ReusableMethods.waitFor(5);
         ReusableMethods.hoverWebElement(featuresList.get(0));
-        System.out.println(featuresList.get(0).getCssValue("transition").toString());
         ReusableMethods.waitFor(5);
+        afterHoverX = featuresList.get(0).getLocation().getX();
+        afterHoverY = featuresList.get(0).getLocation().getY();
+        System.out.println(afterHoverY);
+
+        Assert.assertTrue(afterHoverY<beforeHoverY);
+        Assert.assertEquals(beforeHoverX,afterHoverX);
+
+
+
         ReusableMethods.scrollToWebElement(featuresList.get(1));
         ReusableMethods.hoverWebElement(featuresList.get(1));
         ReusableMethods.waitFor(5);
@@ -160,6 +187,53 @@ public class HomePage extends CommonPage {
             Assert.assertTrue(footerTitel.get(i).isDisplayed());
         }
     }
+
+    public void sindPlanPricingButtonsSichtbar(){
+        ReusableMethods.scrollToWebElement(planAndPricingText);
+        ReusableMethods.waitFor(5);
+        Assert.assertTrue(silverGetStartedButton.isDisplayed());
+        Assert.assertTrue(goldGetStartedButton.isDisplayed());
+        Assert.assertTrue(platinGetStartedButton.isDisplayed());
+    }
+
+    public void sindPlanPricingButtonsKlickbar(){
+        Assert.assertTrue(silverGetStartedButton.isEnabled());
+        Assert.assertTrue(goldGetStartedButton.isEnabled());
+        Assert.assertTrue(platinGetStartedButton.isEnabled());
+    }
+
+    public void istFacebookButtonSichtbarUndKlickbar(){
+
+        ReusableMethods.waitforVisibility(teamSolutionsText,3);
+
+        Assert.assertTrue(sozialeMedienButtonsList.get(0).isDisplayed());
+        Assert.assertTrue(sozialeMedienButtonsList.get(0).isEnabled());
+
+    } public void istTwitterButtonSichtbarUndKlickbar(){
+
+        ReusableMethods.waitforVisibility(teamSolutionsText,3);
+
+        Assert.assertTrue(sozialeMedienButtonsList.get(1).isDisplayed());
+        Assert.assertTrue(sozialeMedienButtonsList.get(1).isEnabled());
+
+    } public void istLinkedInButtonSichtbarUndKlickbar(){
+
+        ReusableMethods.waitforVisibility(teamSolutionsText,3);
+
+        Assert.assertTrue(sozialeMedienButtonsList.get(2).isDisplayed());
+        Assert.assertTrue(sozialeMedienButtonsList.get(2).isEnabled());
+
+    } public void istPinterestButtonSichtbarUndKlickbar(){
+
+        ReusableMethods.waitforVisibility(teamSolutionsText,3);
+
+        Assert.assertTrue(sozialeMedienButtonsList.get(3).isDisplayed());
+        Assert.assertTrue(sozialeMedienButtonsList.get(3).isEnabled());
+
+    }
+
+
+
 }
 
 
